@@ -1,5 +1,5 @@
 <p align="center">
-<img src="resources/logo_transparent.png" alt="DeepBryo logo" width='500' height='200' >
+<img src="resources/logo_transparent.png" alt="DeepBryo logo" width='200' height='200' >
 </p>
 
 # DeepBryo: a web app for AI-assisted segmentation of cheilostome bryozoan colonies
