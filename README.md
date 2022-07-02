@@ -6,7 +6,7 @@
 AI-assisted segmentation of cheilostome bryozoan colonies
 </p>
 
-<p align="center" style="font-size:160%;">
+<p align="center" style="font-size:360%;">
   <img src="resources/deepbryo.gif" alt="animated" />
 </p>
 
