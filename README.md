@@ -12,7 +12,11 @@ This repo contains the supported code and configuration files necessary to initi
 
 ## Server 
 
+<<<<<<< HEAD
 We host a DeepBryo production server for bryozoologists. It can be found at the [BryoLab]('https://bryolab.ngrok.io'). Please send an email with your name and your institutional email address to agporto 'at' gmail.com to request a username and password.
+=======
+A demo version of DeepBryo can be found at the [BryoLab](https://bryolab.ngrok.io)
+>>>>>>> dea66c5e07d494704861f3997cddfde861d244a9
 
 ## Updates
 
