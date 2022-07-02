@@ -2,9 +2,8 @@
 <img src="resources/logo_red.png" alt="DeepBryo logo" width='200' height='200' >
 </p>
 
-<p align="center" style="font-size:50px;">
-AI-assisted segmentation of cheilostome bryozoan colonies
-</p>
+# AI-assisted segmentation of cheilostome bryozoan colonies
+
 
 <p align="center">
   <img src="resources/deepbryo.gif" alt="animated" />
