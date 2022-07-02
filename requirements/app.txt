@@ -1,0 +1,8 @@
+cv2
+numpy
+pandas
+streamlit
+streamlit-drawable-canvas
+PIL
+pycocotools
+xgboost
