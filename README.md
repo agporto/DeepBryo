@@ -12,7 +12,7 @@ This repo contains the supported code and configuration files necessary to initi
 
 ## Demo 
 
-A demo version of DeepBryo can be found at the [BryoLab]('https://bryolab.ngrok.io')
+A demo version of DeepBryo can be found at the [BryoLab](https://bryolab.ngrok.io)
 
 ## Updates
 
