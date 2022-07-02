@@ -3,10 +3,10 @@
 </p>
 
 <p align="center">
-## AI-assisted segmentation of cheilostome bryozoan colonies
+AI-assisted segmentation of cheilostome bryozoan colonies
 </p>
 
-<p align="center">
+<p align="center" style="font-size:160%;">
   <img src="resources/deepbryo.gif" alt="animated" />
 </p>
 
