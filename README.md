@@ -2,7 +2,7 @@
 <img src="resources/logo_red.png" alt="DeepBryo logo" width='200' height='200' >
 </p>
 
-## A web app for AI-assisted segmentation of cheilostome bryozoan colonies
+## AI-assisted segmentation of cheilostome bryozoan colonies
 
 <p align="center">
   <img src="resources/deepbryo.gif" alt="animated" />
@@ -21,7 +21,7 @@ We host a `DeepBryo` production server for bryozoologists. It can be found at th
 
 ## Usage
 
-Once the installation procedures are complete, you can launch a `DeepBryo` server using the following command:
+Once the installation procedures are complete, please download the [model weights](https://drive.google.com/file/d/13UhITFiD-T7GSivUeVRX9ZGJuk508soS/view?usp=sharing) and save the file `deepbryo.pth` inside the `inference/` folder. After that, you can launch a `DeepBryo` server using the following command:
 ```
 streamlit run app/app.py --server.port 8080
 
@@ -31,14 +31,10 @@ streamlit run app/app.py --server.port 8080
 
 Please refer to [get_started.md](https://github.com/open-mmlab/mmdetection/blob/master/docs/en/get_started.md) for installation and dataset preparation.
 
-### Inference
-```
-
-```
 
 ### Training
 
-To retrain DeepBryo, run:
+To retrain `DeepBryo`, run:
 ```
 # single-gpu training
 python tools/train.py <CONFIG_FILE> --cfg-options model.pretrained=<PRETRAIN_MODEL> [model.backbone.use_checkpoint=True] [other optional arguments]
