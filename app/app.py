@@ -159,7 +159,7 @@ def main():
     autofilter = init_filter()
 
     cola, colb, colc = st.sidebar.columns([0.2, 1.4, 0.2])
-    colb.image('./logo_transparent.png', use_column_width= True)
+    colb.image('../resources/logo_transparent.png', use_column_width= True)
 
     classes = ['all', 'autozooid','orifice','avicularium','spiramen','ovicell','ascopore','opesia']
     model.CLASSES = tuple(classes[1:])
