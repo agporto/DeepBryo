@@ -4,3 +4,10 @@ numpy
 six
 terminaltables
 timm
+opencv-python
+pandas
+streamlit
+streamlit-drawable-canvas
+pillow
+pycocotools
+xgboost
