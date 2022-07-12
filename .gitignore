@@ -128,3 +128,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+inference/deepbryo_tiny.pth
