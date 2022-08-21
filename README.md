@@ -22,6 +22,8 @@ We host a `DeepBryo` production server for bryozoologists. It can be found at th
 
 ## Usage
 
+Model weights will be made available upon publication.
+
 Once the installation procedures are complete, please download the [model weights](https://drive.google.com/file/d/13UhITFiD-T7GSivUeVRX9ZGJuk508soS/view?usp=sharing) and save the file `deepbryo.pth` inside the `inference/` folder. After that, you can launch a `DeepBryo` server using the following command:
 ```
 streamlit run app/app.py --server.port 8080
@@ -50,6 +52,7 @@ tools/dist_train.sh <CONFIG_FILE> <GPU_NUM> --cfg-options model.pretrained=<PRET
 
 ## Citing DeepBryo
 ```
+To be announced 
 
 ```
 
