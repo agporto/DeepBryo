@@ -209,6 +209,9 @@ def main():
     if uploaded_img: #is not None:
         file_bytes = np.asarray(bytearray(uploaded_img.read()), dtype=np.uint8)
         img = cv2.imdecode(file_bytes, 1)
+        img_hsv = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
+        img_hsv[:, :, 2] = cv2.equalizeHist(img_hsv[:, :, 2])
+        img = cv2.cvtColor(img_hsv, cv2.COLOR_HSV2RGB)
         height = img.shape[0]
         width = img.shape[1]
         label_font = (width/100 if hide_label is False else 1)
