@@ -154,9 +154,8 @@ def mask_stats(mask):
     hull = cv2.convexHull(cnt)
     solidity = float(area) / cv2.contourArea(hull)
     rect = cv2.minAreaRect(cnt)
-    (xc, yc), (d1, d2), angle = rect
-    circularity = 4 * math.pi * area / (perimeter * perimeter)
-    moments = cv2.moments(cnt)
+    (xc, yc), (d1, d2), angle = rect    auto_filter = args["autofilter"]
+
     hu = cv2.HuMoments(moments)
     return area, perimeter, solidity, circularity, cX, cY, d1, d2, angle, hu
 
@@ -206,7 +205,7 @@ def summarize(predictions, class_id, classes, filename, scale=None):
                     "unit": "pixels" if scale is None else "mm",
                 }
                 dict_out.append(annotation_info)
-        else: 
+        else:
             pass
     if dict_out:
         df = pd.DataFrame(dict_out)
@@ -228,13 +227,16 @@ def main(args):
     ]
     model.CLASSES = tuple(classes[1:])
 
-    filter = args["autofilter"]
-
     for filename in os.listdir(args["input_dir"]):
         out_file = os.path.join(args["out_dir"], filename[:-4] + ".csv")
-        if os.path.exists(out_file) == False:
+
+        if os.path.exists(out_file) == True:
+            print(f"File {out_file} already exists. Skipping it.")
+
+        else:
             print(out_file)
 
+            # loading image and histogram normalization
             img = cv2.imread(os.path.join(args["input_dir"], filename))
             img_hsv = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
             img_hsv[:, :, 2] = cv2.equalizeHist(img_hsv[:, :, 2])
@@ -243,26 +245,26 @@ def main(args):
             height = img.shape[0]
             width = img.shape[1]
 
+            # Class id of interest
             idx = classes.index(args["class"])
+
             # Detection
             out = inference(model, img)
 
-            # Filtering
+            # Filtering objects close to the border (padding) and with regard to the model's confidence 
             out_filtered = filter_border(
                 [height, width], out, idx, args["padding"], args["confidence"]
             )
 
-            if filter:
+            # Additional filtering based on the xgboost model
+            if args["autofilter"]:
                 out_filtered = filter_by_occlusion(
                     autofilter, out_filtered, idx, args["strictness"]
                 )
 
             # Encode and summarize results
-            encode_result = (out_filtered[0], encode_mask_results(out_filtered[1]))
-            df = summarize(
-                encode_result, idx, model.CLASSES, filename, scale=args["scale"]
-            )
-            
+            encode_result = (out_filtered[0], encode_mask_results(out_f    auto_filter = args["autofilter"]
+
             if df is not None:
                 df.to_csv(out_file)
 
@@ -287,15 +289,15 @@ if __name__ == "__main__":
         "-c",
         "--class",
         type=str,
-        default='all',
+        default="all",
         help="output folder. if not specified, defaults to current directory",
     )
     ap.add_argument(
         "-p",
         "--padding",
-        nargs = '+',
-        type = float,
-        default=[0,0,0,0],
+        nargs="+",
+        type=float,
+        default=[0, 0, 0, 0],
         help="remove objects falling within a certain distance from the image border. please provide it as a list in the following order: left, top, right, bottom ",
     )
     ap.add_argument(
