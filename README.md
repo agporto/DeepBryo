@@ -13,7 +13,7 @@ This repo contains the code and configuration files necessary to initiate a loca
 
 ## Server 
 
-We host a `DeepBryo` production server for bryozoologists. It can be found at the [BryoLab](https://bryolab.ngrok.io). Please complete [this](https://docs.google.com/forms/d/e/1FAIpQLSc-NoKamdaWiB9pCGQyXFHsMpXXlBgYRlwwSn53h8jwf7UMnw/viewform?usp=pp_url) registration to let us know who you are and why you are using it. It will help us convincing funders of the project's importance.
+We host a `DeepBryo` production server for bryozoologists. It can be found at [DeepBryo](https://bryolab.ngrok.io). Please complete [this](https://docs.google.com/forms/d/e/1FAIpQLSc-NoKamdaWiB9pCGQyXFHsMpXXlBgYRlwwSn53h8jwf7UMnw/viewform?usp=pp_url) registration form to let us know who you are and what is your main goal when using it.
 
 
 ## Updates
@@ -24,7 +24,7 @@ We host a `DeepBryo` production server for bryozoologists. It can be found at th
 
 ## Usage
 
-**Note:** Model weights will be made available upon publication.
+**Note:** Model weights will be made public available upon publication.
 
 Once the installation procedures are complete, please download the [model weights]() and save the file `deepbryo.pth` inside the `inference/` folder. After that, you can launch a `DeepBryo` server using the following command:
 
