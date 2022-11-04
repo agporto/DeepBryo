@@ -101,6 +101,7 @@ optional arguments:
 
 To retrain `DeepBryo`, run:
 ```
+
 # single-gpu training
 python tools/train.py <CONFIG_FILE> --cfg-options model.pretrained=<PRETRAIN_MODEL> [model.backbone.use_checkpoint=True] [other optional arguments]
 
@@ -115,6 +116,7 @@ tools/dist_train.sh <CONFIG_FILE> <GPU_NUM> --cfg-options model.pretrained=<PRET
 To test a `DeepBryo` model checkpoint, please use: 
 
 ```
+
 # single-gpu testing
 python tools/test.py <CONFIG_FILE> <DET_CHECKPOINT_FILE> --eval bbox segm
 
@@ -131,7 +133,7 @@ To be announced
 
 ## Other Links
 
-[Bryozoa.net](http://bryozoa.net/): Great resource for all things Bryozoa and home of [IBA](http://bryozoa.net/iba/).
+[BRYOZOA.NET](http://bryozoa.net/): Great resource for all things Bryozoa and home of [IBA](http://bryozoa.net/iba/).
 
 [WORMS](https://www.marinespecies.org/): World register of marine species. `DeepBryo`'s taxonomy follows `Worms`.
 
