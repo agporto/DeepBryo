@@ -26,15 +26,15 @@ def initialization():
         model: The constructed detector (Initialized from config file).
 
     """
-    config_file = "../configs/swin/mask_config_serve_tiny.py"
-    checkpoint_file = "../inference/deepbryo_tiny.pth"
+    config_file = "./configs/swin/mask_config_serve_tiny.py"
+    checkpoint_file = "./inference/deepbryo_tiny.pth"
     model = init_detector(config_file, checkpoint_file, device="cuda:0")
     return model
 
 
 @st.experimental_singleton
 def init_filter():
-    autofilter = pickle.load(open("./automated_filtering.dat", "rb"))
+    autofilter = pickle.load(open("./app/automated_filtering.dat", "rb"))
     return autofilter
 
 
@@ -221,7 +221,9 @@ def summarize(predictions, class_id, classes, filename, scale=None):
                     "confidence": element[4],
                     "unit": "pixels" if scale is None else "mm",
                 }
-
+                dict_out.append(annotation_info)
+        else: 
+            pass
     if dict_out:
         df = pd.DataFrame(dict_out)
         return df
@@ -245,9 +247,9 @@ def main(args):
     filter = args["autofilter"]
 
     for filename in os.listdir(args["input_dir"]):
-        out_file = os.path.join(args["out_dir"], filename + ".csv")
+        out_file = os.path.join(args["out_dir"], filename[:-4] + ".csv")
         if os.path.exists(out_file) == False:
-            print(filename)
+            print(out_file)
 
             img = cv2.imread(os.path.join(args["input_dir"], filename))
             img_hsv = cv2.cvtColor(img, cv2.COLOR_RGB2HSV)
@@ -258,7 +260,6 @@ def main(args):
             width = img.shape[1]
 
             idx = classes.index(args["class"])
-
             # Detection
             out = inference(model, img)
 
@@ -277,7 +278,7 @@ def main(args):
             df = summarize(
                 encode_result, idx, model.CLASSES, filename, scale=args["scale"]
             )
-
+            
             if df is not None:
                 df.to_csv(out_file)
 
@@ -288,41 +289,43 @@ if __name__ == "__main__":
         "-i",
         "--input_dir",
         type=str,
-        default=None,
         help="folder containing images to be predicted",
-        metavar="",
         required=True,
     )
     ap.add_argument(
         "-o",
         "--out-dir",
         type=str,
-        default="./",
         help="output folder. if not specified, defaults to current directory",
-        metavar="",
-    )
-    ap.add_argument(
-        "-p",
-        "--border-padding",
-        nargs = '+',
-        default=[0,0,0,0],
-        help="remove objects falling within a certain distance from the image border. please provide it as a list in the following order: left, top, right, bottom ",
-        metavar="",
+        required=True,
     )
     ap.add_argument(
         "-c",
+        "--class",
+        type=str,
+        default='all',
+        help="output folder. if not specified, defaults to current directory",
+    )
+    ap.add_argument(
+        "-p",
+        "--padding",
+        nargs = '+',
+        type = float,
+        default=[0,0,0,0],
+        help="remove objects falling within a certain distance from the image border. please provide it as a list in the following order: left, top, right, bottom ",
+    )
+    ap.add_argument(
+        "-t",
         "--confidence",
         type=float,
         default=0.5,
         help="model's confidence threshold (default = 0.5)",
-        metavar="",
     )
     ap.add_argument(
         "-a",
         "--autofilter",
         action="store_true",
         help="enable autofilter of model predictions",
-        metavar="",
     )
     ap.add_argument(
         "-s",
@@ -330,15 +333,13 @@ if __name__ == "__main__":
         type=float,
         default=0.5,
         help="regulated the strictness of the automated filtering algorithm",
-        metavar="",
     )
     ap.add_argument(
         "-sc",
         "--scale",
         type=float,
         default=None,
-        help="scaling parameter (default = None)",
-        metavar="",
+        help="pixel-to-mm scaling parameter (default = None)",
     )
 
     args = vars(ap.parse_args())
