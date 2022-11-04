@@ -294,7 +294,7 @@ if __name__ == "__main__":
         "--class",
         type=str,
         default="all",
-        help="output folder. if not specified, defaults to current directory",
+        help="object class of interest. Options: all, autozooid, orifice, avicularium, ovicell, ascopore, opesia",
     )
     ap.add_argument(
         "-p",

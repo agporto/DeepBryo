@@ -18,11 +18,12 @@ We host a `DeepBryo` production server for bryozoologists. It can be found at th
 
 ## Updates
 
+11/04/2022 - CLI-version of the app released
 07/01/2022 - `DeepBryo` v0.1 gets an official Github repository.
 
 ## Usage
 
-Model weights will be made available upon publication.
+**Note:** Model weights will be made available upon publication.
 
 Once the installation procedures are complete, please download the [model weights]() and save the file `deepbryo.pth` inside the `inference/` folder. After that, you can launch a `DeepBryo` server using the following command:
 
@@ -56,7 +57,7 @@ python app/app-cli.py -i INPUT_DIR -o OUT_DIR [other optional arguments]
 
 ```
 
-The parameters associated with the cli tool are:
+The parameters associated with the cli tool mirror the web app and are:
 
 ```
 usage: app-cli.py [-h] -i INPUT_DIR -o OUT_DIR [-c CLASS] [-p PADDING [PADDING ...]] [-t CONFIDENCE] [-a]
@@ -64,27 +65,31 @@ usage: app-cli.py [-h] -i INPUT_DIR -o OUT_DIR [-c CLASS] [-p PADDING [PADDING .
 
 optional arguments:
   -h, --help            show this help message and exit
+
   -i INPUT_DIR, --input_dir INPUT_DIR
-                        folder containing images to be predicted
+                        folder containing images to be predicted (required)
+
   -o OUT_DIR, --out-dir OUT_DIR
-                        output folder. if not specified, defaults to current
-                        directory
+                        output folder (required)
+
   -c CLASS, --class CLASS
-                        output folder. if not specified, defaults to current
-                        directory
+                        object class of interest. Options: all, autozooid, orifice, avicularium, ovicell, ascopore, opesia
+
   -p PADDING [PADDING ...], --padding PADDING [PADDING ...]
                         remove objects falling within a certain distance from
                         the image border. please provide it as a list in the
                         following order: left, top, right, bottom
+
   -t CONFIDENCE, --confidence CONFIDENCE
                         model's confidence threshold (default = 0.5)
+
   -a, --autofilter      enable autofilter of model predictions
+
   -s STRICTNESS, --strictness STRICTNESS
-                        regulated the strictness of the automated filtering
-                        algorithm
+                        regulated the strictness of the automated filtering algorithm
+
   -sc SCALE, --scale SCALE
                         pixel-to-mm scaling parameter (default = None)
-
 ```
 
 
@@ -101,9 +106,12 @@ python tools/train.py <CONFIG_FILE> --cfg-options model.pretrained=<PRETRAIN_MOD
 tools/dist_train.sh <CONFIG_FILE> <GPU_NUM> --cfg-options model.pretrained=<PRETRAIN_MODEL> [model.backbone.use_checkpoint=True] [other optional arguments] 
 
 ```
-**Note:** `use_checkpoint` is used to save GPU memory. Please refer to [this page](https://pytorch.org/docs/stable/checkpoint.html) for more details.
+**Note:** For other details, please see the [SwinTransformer](https://github.com/SwinTransformer/Swin-Transformer-Object-Detection) official web page.  
 
 ### Testing
+
+To test a `DeepBryo` model checkpoint, please use: 
+
 ```
 # single-gpu testing
 python tools/test.py <CONFIG_FILE> <DET_CHECKPOINT_FILE> --eval bbox segm
