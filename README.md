@@ -19,6 +19,7 @@ We host a `DeepBryo` production server for bryozoologists. It can be found at th
 ## Updates
 
 11/04/2022 - CLI-version of the app released
+
 07/01/2022 - `DeepBryo` v0.1 gets an official Github repository.
 
 ## Usage
