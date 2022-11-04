@@ -2,23 +2,15 @@ import cv2
 import argparse
 import os
 import numpy as np
-import streamlit as st
 from mmdet.apis import init_detector, inference_detector
 from mmdet.core import encode_mask_results
-from streamlit_drawable_canvas import st_canvas
 import pandas as pd
-import PIL
 import pycocotools.mask as mask_util
 import math
 import xgboost
 import pickle
-import pycocotools.mask as mask_util
-
-PAGE_CONFIG = {"page_title": "DeepBryo", "page_icon": ":o", "layout": "wide"}
-st.set_page_config(**PAGE_CONFIG)
 
 
-@st.experimental_singleton
 def initialization():
     """Loads configuration and model for the prediction.
 
@@ -32,13 +24,11 @@ def initialization():
     return model
 
 
-@st.experimental_singleton
 def init_filter():
     autofilter = pickle.load(open("./app/automated_filtering.dat", "rb"))
     return autofilter
 
 
-@st.experimental_memo
 def inference(_model, img):
     return inference_detector(_model, img)
 
