@@ -12,12 +12,6 @@ import pickle
 
 
 def initialization():
-    """Loads configuration and model for the prediction.
-
-    Returns:
-        model: The constructed detector (Initialized from config file).
-
-    """
     config_file = "./configs/swin/mask_config_serve_tiny.py"
     checkpoint_file = "./inference/deepbryo_tiny.pth"
     model = init_detector(config_file, checkpoint_file, device="cuda:0")
