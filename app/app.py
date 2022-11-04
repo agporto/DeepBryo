@@ -91,10 +91,19 @@ def add_number_id(ouputs, img):
     count = 0
     for num, structure in enumerate(boxes):
         for idx, element in enumerate(structure):
-            x = int((element[0] + element[2])/2)
-            y = int((element[1] + element[3])/2)
-            cv2.rectangle(img, (x - 5, y - 30), (x + 45, y + 5), (0,0,0), -1)
-            cv2.putText(img, str(count), (x,y), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255), 2, lineType=cv2.LINE_AA)
+            x = int((element[0] + element[2]) / 2)
+            y = int((element[1] + element[3]) / 2)
+            cv2.rectangle(img, (x - 5, y - 30), (x + 45, y + 5), (0, 0, 0), -1)
+            cv2.putText(
+                img,
+                str(count),
+                (x, y),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                1,
+                (255, 255, 255),
+                2,
+                lineType=cv2.LINE_AA,
+            )
             count += 1
     return img
 
@@ -153,8 +162,8 @@ def mask_stats(mask):
     hull = cv2.convexHull(cnt)
     solidity = float(area) / cv2.contourArea(hull)
     rect = cv2.minAreaRect(cnt)
-    (xc,yc),(d1,d2),angle = rect
-    circularity = 4*math.pi*area/(perimeter*perimeter)
+    (xc, yc), (d1, d2), angle = rect
+    circularity = 4 * math.pi * area / (perimeter * perimeter)
     moments = cv2.moments(cnt)
     hu = cv2.HuMoments(moments)
     return area, perimeter, solidity, circularity, cX, cY, d1, d2, angle, hu
@@ -164,7 +173,7 @@ def summarize(predictions, class_id, classes, filename, scale=None):
     (bboxes, masks) = predictions
     dict_out = []
     numerator = 1 if scale is None else scale * 1000
-    for num, structure in enumerate(bboxes): 
+    for num, structure in enumerate(bboxes):
         if class_id == 0 or num == (class_id - 1):
             for idx, element in enumerate(structure):
                 (
@@ -205,7 +214,7 @@ def summarize(predictions, class_id, classes, filename, scale=None):
                     "unit": "pixels" if scale is None else "mm",
                 }
                 dict_out.append(annotation_info)
-        else: 
+        else:
             pass
 
     if dict_out:
@@ -257,10 +266,10 @@ def main():
         padding = [left, top, right, bottom]
     else:
         padding = [0, 0, 0, 0]
-    
+
     auto_filter = st.sidebar.checkbox("Automated filtering", value=False)
     strictness = st.sidebar.slider("Strictness", 0.0, 1.0, 0.5)
-    
+
     st.sidebar.markdown("## Output table")
     table = st.sidebar.checkbox("Generate table output", value=False)
 
@@ -347,7 +356,7 @@ def main():
                     st.write(
                         f"Please select two points: one at the beggining and one at the end of the scale. Then press the leftmost button to submit to the app."
                     )
-                        
+
         else:
             st.image(out_image, caption="Detected objects", use_column_width="auto")
 
