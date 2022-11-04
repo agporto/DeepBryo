@@ -40,7 +40,7 @@ Note that you are free to choose other server ports. Also, you can serve the app
 
 ### Installation
 
-Below are quick steps for installation:
+Below are quick steps for installation using [Anaconda](https://www.anaconda.com/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html):
 
 ```
 conda create -n deepbryo python=3.7 pytorch=1.10 cudatoolkit=11.3 torchvision==0.11 -c pytorch -y
