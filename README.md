@@ -28,6 +28,7 @@ We host a `DeepBryo` production server for bryozoologists. It can be found at th
 Once the installation procedures are complete, please download the [model weights]() and save the file `deepbryo.pth` inside the `inference/` folder. After that, you can launch a `DeepBryo` server using the following command:
 
 ```
+
 streamlit run app/app.py --server.port 8080
 
 ```
@@ -44,7 +45,6 @@ mim install mmcv-full==1.4.0
 git clone https://github.com/agporto/DeepBryo.git
 cd DeepBryo
 pip3 install -e .
-
 ```
 
 
@@ -53,6 +53,7 @@ pip3 install -e .
 If you would rather use the model as a command-line tool to perform high-throughput prediction. Simply use the following command:
 
 ```
+
 python app/app-cli.py -i INPUT_DIR -o OUT_DIR [other optional arguments]
 
 ```
@@ -60,8 +61,8 @@ python app/app-cli.py -i INPUT_DIR -o OUT_DIR [other optional arguments]
 The parameters associated with the cli tool mirror the web app and are:
 
 ```
-usage: app-cli.py [-h] -i INPUT_DIR -o OUT_DIR [-c CLASS] [-p PADDING [PADDING ...]] [-t CONFIDENCE] [-a]
-                  [-s STRICTNESS] [-sc SCALE]
+usage: app-cli.py [-h] -i INPUT_DIR -o OUT_DIR [-c CLASS] [-p PADDING [PADDING ...]] [-t CONFIDENCE] 
+                  [-a] [-s STRICTNESS] [-sc SCALE]
 
 optional arguments:
   -h, --help            show this help message and exit
@@ -73,7 +74,8 @@ optional arguments:
                         output folder (required)
 
   -c CLASS, --class CLASS
-                        object class of interest. Options: all, autozooid, orifice, avicularium, ovicell, ascopore, opesia
+                        object class of interest. 
+                        options: all, autozooid, orifice, avicularium, ovicell, ascopore, opesia
 
   -p PADDING [PADDING ...], --padding PADDING [PADDING ...]
                         remove objects falling within a certain distance from
@@ -130,6 +132,7 @@ To be announced
 ## Other Links
 
 [Bryozoa.net](http://bryozoa.net/): Great resource for all things Bryozoa and home of [IBA](http://bryozoa.net/iba/).
+
 [WORMS](https://www.marinespecies.org/): World register of marine species. `DeepBryo`'s taxonomy follows `Worms`.
 
 
