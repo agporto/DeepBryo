@@ -47,7 +47,46 @@ pip3 install -e .
 ```
 
 
-### Inference
+### High-Throughput Inference (Command-line Interface)
+
+If you would rather use the model as a command-line tool to perform high-throughput prediction. Simply use the following command:
+
+```
+python app/app-cli.py -i INPUT_DIR -o OUT_DIR [other optional arguments]
+
+```
+
+The parameters associated with the cli tool are:
+
+```
+usage: app-cli.py [-h] -i INPUT_DIR -o OUT_DIR [-c CLASS] [-p PADDING [PADDING ...]] [-t CONFIDENCE] [-a]
+                  [-s STRICTNESS] [-sc SCALE]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -i INPUT_DIR, --input_dir INPUT_DIR
+                        folder containing images to be predicted
+  -o OUT_DIR, --out-dir OUT_DIR
+                        output folder. if not specified, defaults to current
+                        directory
+  -c CLASS, --class CLASS
+                        output folder. if not specified, defaults to current
+                        directory
+  -p PADDING [PADDING ...], --padding PADDING [PADDING ...]
+                        remove objects falling within a certain distance from
+                        the image border. please provide it as a list in the
+                        following order: left, top, right, bottom
+  -t CONFIDENCE, --confidence CONFIDENCE
+                        model's confidence threshold (default = 0.5)
+  -a, --autofilter      enable autofilter of model predictions
+  -s STRICTNESS, --strictness STRICTNESS
+                        regulated the strictness of the automated filtering
+                        algorithm
+  -sc SCALE, --scale SCALE
+                        pixel-to-mm scaling parameter (default = None)
+
+```
+
 
 
 

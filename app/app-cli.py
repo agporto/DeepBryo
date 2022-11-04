@@ -232,7 +232,7 @@ def main(args):
         out_file = os.path.join(args["out_dir"], filename[:-4] + ".csv")
 
         if os.path.exists(out_file) == True:
-            print(f"File {out_file} already exists. Skipping it.")
+            print(f'File {out_file} already exists. Skipping it.')
 
         else:
             print(out_file)
