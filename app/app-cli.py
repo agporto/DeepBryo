@@ -154,8 +154,9 @@ def mask_stats(mask):
     hull = cv2.convexHull(cnt)
     solidity = float(area) / cv2.contourArea(hull)
     rect = cv2.minAreaRect(cnt)
-    (xc, yc), (d1, d2), angle = rect    auto_filter = args["autofilter"]
-
+    (xc, yc), (d1, d2), angle = rect
+    circularity = 4*math.pi*area/(perimeter*perimeter)
+    moments = cv2.moments(cnt)
     hu = cv2.HuMoments(moments)
     return area, perimeter, solidity, circularity, cX, cY, d1, d2, angle, hu
 
@@ -263,8 +264,11 @@ def main(args):
                 )
 
             # Encode and summarize results
-            encode_result = (out_filtered[0], encode_mask_results(out_f    auto_filter = args["autofilter"]
-
+            encode_result =(out_filtered[0], encode_mask_results(out_filtered[1]))
+            df = summarize(
+                encode_result, idx, model.CLASSES, filename, scale=args["scale"]
+            )
+            
             if df is not None:
                 df.to_csv(out_file)
 

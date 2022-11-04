@@ -10,5 +10,5 @@ streamlit
 streamlit-drawable-canvas
 pillow
 pycocotools
-xgboost
+xgboost==1.5.2
 scikit-learn

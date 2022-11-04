@@ -96,7 +96,9 @@ train_pipeline = [
     dict(type="DefaultFormatBundle"),
     dict(type="Collect", keys=["img", "gt_bboxes", "gt_labels", "gt_masks"]),
 ]
+
 dataset_type = "CocoDataset"
+
 classes = (
     "ascopore",
     " autozooid",
@@ -106,6 +108,7 @@ classes = (
     "ovicell",
     "spiramen",
 )
+
 data = dict(
     train=dict(
         type=dataset_type,
@@ -127,6 +130,7 @@ data = dict(
         ann_file="../../images/test/instances_default.json",
     ),
 )
+
 load_from = "../../inference/deepbryo.pth"
 
 
@@ -144,5 +148,7 @@ optimizer = dict(
         }
     ),
 )
+
 lr_config = dict(step=[30, 60])
+
 runner = dict(type="EpochBasedRunner", max_epochs=90)
