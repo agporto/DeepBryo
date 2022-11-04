@@ -47,7 +47,6 @@ pip3 install -e .
 ```
 
 
-
 ### Inference
 
 
