@@ -29,10 +29,14 @@ We host a `DeepBryo` production server for bryozoologists. It can be found at th
 Once the installation procedures are complete, please download the [model weights]() and save the file `deepbryo.pth` inside the `inference/` folder. After that, you can launch a `DeepBryo` server using the following command:
 
 ```
-
 streamlit run app/app.py --server.port 8080
-
 ```
+The web app can then be launched on a web browser at: 
+```
+localhost:8080
+```
+Note that you are free to choose other server ports. Also, you can serve the app over the internet by forwarding the port in question to your own domain. 
+
 
 ### Installation
 
@@ -54,9 +58,7 @@ pip3 install -e .
 If you would rather use the model as a command-line tool to perform high-throughput prediction. Simply use the following command:
 
 ```
-
 python app/app-cli.py -i INPUT_DIR -o OUT_DIR [other optional arguments]
-
 ```
 
 The parameters associated with the cli tool mirror the web app and are:
@@ -102,13 +104,11 @@ optional arguments:
 
 To retrain `DeepBryo`, run:
 ```
-
 # single-gpu training
 python tools/train.py <CONFIG_FILE> --cfg-options model.pretrained=<PRETRAIN_MODEL> [model.backbone.use_checkpoint=True] [other optional arguments]
 
 # multi-gpu training
 tools/dist_train.sh <CONFIG_FILE> <GPU_NUM> --cfg-options model.pretrained=<PRETRAIN_MODEL> [model.backbone.use_checkpoint=True] [other optional arguments] 
-
 ```
 **Note:** For other details, please see the [SwinTransformer](https://github.com/SwinTransformer/Swin-Transformer-Object-Detection) official web page.  
 
@@ -117,19 +117,16 @@ tools/dist_train.sh <CONFIG_FILE> <GPU_NUM> --cfg-options model.pretrained=<PRET
 To test a `DeepBryo` model checkpoint, please use: 
 
 ```
-
 # single-gpu testing
 python tools/test.py <CONFIG_FILE> <DET_CHECKPOINT_FILE> --eval bbox segm
 
 # multi-gpu testing
 tools/dist_test.sh <CONFIG_FILE> <DET_CHECKPOINT_FILE> <GPU_NUM> --eval bbox segm
-
 ```
 
 ## Citing DeepBryo
 ```
 To be announced 
-
 ```
 
 ## Other Links
