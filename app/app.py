@@ -30,8 +30,8 @@ def init_filter():
 
 
 @st.experimental_memo
-def inference(_model, img):
-    return inference_detector(_model, img)
+def inference(model, img):
+    return inference_detector(model, img)
 
 
 def filter_border(img_size, outputs, classes, pad, confidence):
@@ -63,7 +63,7 @@ def filter_border(img_size, outputs, classes, pad, confidence):
     return outputs
 
 
-def filter_by_occlusion(_model, outputs, classes, strictness):
+def filter_by_occlusion(model, outputs, classes, strictness):
     (boxes, masks) = outputs
     encoded_masks = encode_mask_results(masks)
     for num, structure in enumerate(masks):
@@ -75,7 +75,7 @@ def filter_by_occlusion(_model, outputs, classes, strictness):
                     encoded_masks[num][idx],
                     element.shape[0],
                     element.shape[1],
-                    _model,
+                    model,
                     num,
                     strictness,
                 )
