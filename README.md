@@ -13,7 +13,7 @@ This repo contains the code and configuration files necessary to initiate a loca
 
 ## Server 
 
-We host a `DeepBryo` production server for bryozoologists. It can be found at [DeepBryo](https://bryolab.ngrok.io). Please complete [this](https://docs.google.com/forms/d/e/1FAIpQLSc-NoKamdaWiB9pCGQyXFHsMpXXlBgYRlwwSn53h8jwf7UMnw/viewform?usp=pp_url) registration form to let us know who you are and what is your main goal when using it.
+We host a `DeepBryo` production server for bryozoologists. It can be found at [DeepBryo](https://deepbryo.ngrok.io). Please complete [this](https://docs.google.com/forms/d/e/1FAIpQLSc-NoKamdaWiB9pCGQyXFHsMpXXlBgYRlwwSn53h8jwf7UMnw/viewform?usp=pp_url) registration form to let us know who you are and what is your main goal when using it.
 
 
 ## Updates
