@@ -98,7 +98,7 @@ optional arguments:
                         regulated the strictness of the automated filtering algorithm
 
   -sc SCALE, --scale SCALE
-                        pixel-to-mm scaling parameter (default = None)
+                        pixel-to-um scaling parameter (default = None)
 ```
 
 
