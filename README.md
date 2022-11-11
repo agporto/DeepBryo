@@ -39,7 +39,7 @@ Note that you are free to choose other server ports. Also, you can serve the app
 
 **Note:** `Windows` users having trouble with streamlit, please see [this](https://discuss.streamlit.io/t/getting-an-error-streamlit-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file/361).
 
-### Installation
+## Installation
 
 **Note:** As of now, macOS is not supported by DeepBryo due to lack of CUDA support. 
 
@@ -57,7 +57,7 @@ pip3 install -e .
 ```
 
 
-### High-Throughput Inference (Command-line Interface)
+## High-Throughput Inference (Command-line Interface)
 
 If you would rather use the model as a command-line tool to perform high-throughput prediction. Simply use the following command:
 
@@ -104,7 +104,7 @@ optional arguments:
 
 
 
-### Training
+## Training
 
 To retrain `DeepBryo`, run:
 ```
@@ -116,7 +116,7 @@ tools/dist_train.sh <CONFIG_FILE> <GPU_NUM> --cfg-options model.pretrained=<PRET
 ```
 **Note:** For other details, please see the [SwinTransformer](https://github.com/SwinTransformer/Swin-Transformer-Object-Detection) official web page.  
 
-### Testing
+## Testing
 
 To test a `DeepBryo` model checkpoint, please use: 
 
