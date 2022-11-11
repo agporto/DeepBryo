@@ -35,15 +35,16 @@ The web app can then be launched on a web browser at:
 ```
 localhost:8080
 ```
-Note that you are free to choose other server ports. Also, you can serve the app over the internet by forwarding the port in question to your own domain. 
+Note that you are free to choose other server ports. Also, you can serve the app over the internet by forwarding the port in question to your own domain.
 
+**Note:** `Windows` users having trouble with streamlit, please see [this](https://discuss.streamlit.io/t/getting-an-error-streamlit-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file/361).
 
 ### Installation
 
 **Note:** As of now, macOS is not supported by DeepBryo due to lack of CUDA support. 
 
 
-Below are quick steps for installation using [Anaconda](https://www.anaconda.com/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html) in Linux or Windows (assuming the presence of an NVIDIA gpu):
+Below are quick steps for installation using [Anaconda](https://www.anaconda.com/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html) in `Linux` or `Windows` (assuming the presence of an `NVIDIA` gpu):
 
 ```
 conda create -n deepbryo python=3.7 pytorch=1.10 cudatoolkit=11.3 torchvision==0.11 -c pytorch -y
