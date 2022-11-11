@@ -40,7 +40,10 @@ Note that you are free to choose other server ports. Also, you can serve the app
 
 ### Installation
 
-Below are quick steps for installation using [Anaconda](https://www.anaconda.com/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html):
+**Note:** As of now, macOS is not supported by DeepBryo due to lack of CUDA support. 
+
+
+Below are quick steps for installation using [Anaconda](https://www.anaconda.com/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html) in Linux or Windows (assuming the presence of an NVIDIA gpu):
 
 ```
 conda create -n deepbryo python=3.7 pytorch=1.10 cudatoolkit=11.3 torchvision==0.11 -c pytorch -y
