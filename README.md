@@ -17,6 +17,7 @@ We host a `DeepBryo` production server for bryozoologists. It can be found at [D
 
 
 ## Updates
+11/18/2022 - Preprint is out at bioRxiv. Model weights are released.
 
 11/04/2022 - CLI-version of the app released
 
@@ -24,9 +25,7 @@ We host a `DeepBryo` production server for bryozoologists. It can be found at [D
 
 ## Usage
 
-**Note:** Model weights will be made public available upon publication.
-
-Once the installation procedures are complete, please download the [model weights]() and save the file `deepbryo.pth` inside the `inference/` folder. After that, you can launch a `DeepBryo` server using the following command:
+Once the installation procedures are complete, please download the [model weights](https://drive.google.com/file/d/1vKf7joCt_QNwwq4IFauWYA4Lh8FMcBPo/view?usp=share_link) and save the file `deepbryo-tiny.pth` inside the `inference/` folder. After that, you can launch a `DeepBryo` server using the following command:
 
 ```
 streamlit run app/app.py --server.port 8080
