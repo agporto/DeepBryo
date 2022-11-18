@@ -131,7 +131,7 @@ tools/dist_test.sh <CONFIG_FILE> <DET_CHECKPOINT_FILE> <GPU_NUM> --eval bbox seg
 ## Citing DeepBryo
 ```
 @article {Di Martino2022.11.17.516938,
-	author = {Di Martino, Emanuela and Berning, Bj{\"o}rn and Gordon, Dennis P. and Kuklinski, Piotr and Liow, Lee Hsiang and Ramsfjell, Mali H. and Ribeiro, Henrique L. and Smith, Abigail M. and Taylor, Paul D. and Voje, Kjetil L. and Waeschenbach, Andrea and Porto, Arthur},
+	author = {Di Martino, Emanuela and Berning, Bjorn and Gordon, Dennis P. and Kuklinski, Piotr and Liow, Lee Hsiang and Ramsfjell, Mali H. and Ribeiro, Henrique L. and Smith, Abigail M. and Taylor, Paul D. and Voje, Kjetil L. and Waeschenbach, Andrea and Porto, Arthur},
 	title = {DeepBryo: a web app for AI-assisted morphometric characterization of cheilostome bryozoans},
 	year = {2022},
 	doi = {10.1101/2022.11.17.516938},
