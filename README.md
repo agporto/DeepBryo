@@ -13,10 +13,11 @@ This repo contains the code and configuration files necessary to initiate a loca
 
 ## Server 
 
-We host a `DeepBryo` production server for bryozoologists. It can be found at [DeepBryo](https://bryolab.ngrok.io). Please complete [this](https://docs.google.com/forms/d/e/1FAIpQLSc-NoKamdaWiB9pCGQyXFHsMpXXlBgYRlwwSn53h8jwf7UMnw/viewform?usp=pp_url) registration form to let us know who you are and what is your main goal when using it.
+We host a `DeepBryo` production server for bryozoologists. It can be found at [DeepBryo](https://deepbryo.ngrok.io). Please complete [this](https://docs.google.com/forms/d/e/1FAIpQLSc-NoKamdaWiB9pCGQyXFHsMpXXlBgYRlwwSn53h8jwf7UMnw/viewform?usp=pp_url) registration form to let us know who you are and what is your main goal when using it.
 
 
 ## Updates
+11/18/2022 - Preprint is out at bioRxiv. Model weights are released.
 
 11/04/2022 - CLI-version of the app released
 
@@ -24,9 +25,7 @@ We host a `DeepBryo` production server for bryozoologists. It can be found at [D
 
 ## Usage
 
-**Note:** Model weights will be made public available upon publication.
-
-Once the installation procedures are complete, please download the [model weights]() and save the file `deepbryo.pth` inside the `inference/` folder. After that, you can launch a `DeepBryo` server using the following command:
+Once the installation procedures are complete, please download the [model weights](https://drive.google.com/file/d/1vKf7joCt_QNwwq4IFauWYA4Lh8FMcBPo/view?usp=share_link) and save the file `deepbryo-tiny.pth` inside the `inference/` folder. After that, you can launch a `DeepBryo` server using the following command:
 
 ```
 streamlit run app/app.py --server.port 8080
@@ -35,12 +34,16 @@ The web app can then be launched on a web browser at:
 ```
 localhost:8080
 ```
-Note that you are free to choose other server ports. Also, you can serve the app over the internet by forwarding the port in question to your own domain. 
+Note that you are free to choose other server ports. Also, you can serve the app over the internet by forwarding the port in question to your own domain.
+
+**Note:** `Windows` users having trouble with streamlit, please see [this](https://discuss.streamlit.io/t/getting-an-error-streamlit-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file/361).
+
+## Installation
+
+**Note:** As of now, macOS is not supported by DeepBryo due to lack of CUDA support. 
 
 
-### Installation
-
-Below are quick steps for installation using [Anaconda](https://www.anaconda.com/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html):
+Below are quick steps for installation using [Anaconda](https://www.anaconda.com/) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html) in `Linux` or `Windows` (assuming the presence of an `NVIDIA` gpu):
 
 ```
 conda create -n deepbryo python=3.7 pytorch=1.10 cudatoolkit=11.3 torchvision==0.11 -c pytorch -y
@@ -53,7 +56,7 @@ pip3 install -e .
 ```
 
 
-### High-Throughput Inference (Command-line Interface)
+## High-Throughput Inference (Command-line Interface)
 
 If you would rather use the model as a command-line tool to perform high-throughput prediction. Simply use the following command:
 
@@ -94,13 +97,13 @@ optional arguments:
                         regulated the strictness of the automated filtering algorithm
 
   -sc SCALE, --scale SCALE
-                        pixel-to-mm scaling parameter (default = None)
+                        pixel-to-um scaling parameter (default = None)
 ```
 
 
 
 
-### Training
+## Training
 
 To retrain `DeepBryo`, run:
 ```
@@ -112,7 +115,7 @@ tools/dist_train.sh <CONFIG_FILE> <GPU_NUM> --cfg-options model.pretrained=<PRET
 ```
 **Note:** For other details, please see the [SwinTransformer](https://github.com/SwinTransformer/Swin-Transformer-Object-Detection) official web page.  
 
-### Testing
+## Testing
 
 To test a `DeepBryo` model checkpoint, please use: 
 
@@ -126,7 +129,16 @@ tools/dist_test.sh <CONFIG_FILE> <DET_CHECKPOINT_FILE> <GPU_NUM> --eval bbox seg
 
 ## Citing DeepBryo
 ```
-To be announced 
+@article {Di Martino2022.11.17.516938,
+	author = {Di Martino, Emanuela and Berning, Bjorn and Gordon, Dennis P. and Kuklinski, Piotr and Liow, Lee Hsiang and Ramsfjell, Mali H. and Ribeiro, Henrique L. and Smith, Abigail M. and Taylor, Paul D. and Voje, Kjetil L. and Waeschenbach, Andrea and Porto, Arthur},
+	title = {DeepBryo: a web app for AI-assisted morphometric characterization of cheilostome bryozoans},
+	year = {2022},
+	doi = {10.1101/2022.11.17.516938},
+	publisher = {Cold Spring Harbor Laboratory},
+	URL = {https://www.biorxiv.org/content/early/2022/11/17/2022.11.17.516938},
+	eprint = {https://www.biorxiv.org/content/early/2022/11/17/2022.11.17.516938.full.pdf},
+	journal = {bioRxiv}
+}
 ```
 
 ## Other Links
