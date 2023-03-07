@@ -106,7 +106,7 @@ optional arguments:
 ## Training
 
 To retrain `DeepBryo`, run:
-```
+```bash
 # single-gpu training
 python tools/train.py <CONFIG_FILE> --cfg-options model.pretrained=<PRETRAIN_MODEL> [model.backbone.use_checkpoint=True] [other optional arguments]
 
@@ -119,7 +119,7 @@ tools/dist_train.sh <CONFIG_FILE> <GPU_NUM> --cfg-options model.pretrained=<PRET
 
 To test a `DeepBryo` model checkpoint, please use: 
 
-```
+```bash
 # single-gpu testing
 python tools/test.py <CONFIG_FILE> <DET_CHECKPOINT_FILE> --eval bbox segm
 
