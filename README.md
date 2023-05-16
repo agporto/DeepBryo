@@ -126,6 +126,23 @@ python tools/test.py <CONFIG_FILE> <DET_CHECKPOINT_FILE> --eval bbox segm
 # multi-gpu testing
 tools/dist_test.sh <CONFIG_FILE> <DET_CHECKPOINT_FILE> <GPU_NUM> --eval bbox segm
 ```
+## Customizing DeepBryo to other study systems
+
+The `DeepBryo` repository is designed to work with the `COCO JSON` format, which is a common format for object detection and segmentation tasks. If you want to adapt this repository to work with other study systems, you would need to prepare your data in the `COCO JSON` format and make some modifications to the code. Here are are some key steps:
+
+* __Prepare Your Data__: First, you need to annotate your images in the `COCO JSON` format. This format includes information about the image size, the objects present in the image, their categories, and their bounding box coordinates or segmentation masks. There are many tools available online that can help you annotate your images in this format, such as Labelbox, VGG Image Annotator (VIA), CVAT, and others.
+
+* __Modify Configuration Files__: The `DeepBryo` repository contains configuration files (found in the configs directory) that specify the model architecture and training parameters. You would need to modify these files to suit your specific task. For example, you might need to change the number of classes if your task involves different categories of objects. You will also need to give the data paths containing the train/test data.
+
+* __Update Training and Testing Scripts__: The training and testing scripts (found in the tools directory) may also need to be updated. For instance, you might need to adjust the evaluation metrics if your task requires different measures of performance.
+
+* __Retrain the Model__: Once you've made these modifications, you can retrain the model on your data. The commands for training the model are provided above. You might need to adjust these commands depending on your specific setup (e.g., if you're using multiple GPUs).
+
+* __Test the Model__: After training, you can test the model on your data. Again, the commands for testing the model are provided above.
+
+* __Adjust the User Interface__: The app.py file in the app directory contains the code for the Streamlit user interface. You might need to adjust this to suit your specific task. For example, you might need to change the path to the model checkpoints and the config files. You will also need to edit the _classes_ variable and the logo (should you want).
+
+Remember, adapting a model to a new task can be a complex process that requires a good understanding of the model architecture and the specific requirements of your task. It might take some trial and error to get everything working correctly.
 
 ## Citing DeepBryo
 ```bibtex
