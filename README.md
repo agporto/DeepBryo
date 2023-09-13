@@ -28,7 +28,7 @@ We host a `DeepBryo` production server for bryozoologists. It can be found at [D
 Once the installation procedures are complete, please download the [model weights](https://drive.google.com/file/d/1vKf7joCt_QNwwq4IFauWYA4Lh8FMcBPo/view?usp=share_link) and save the file `deepbryo-tiny.pth` inside the `inference/` folder. After that, you can launch a `DeepBryo` server using the following command:
 
 ```
-streamlit run app/app.py --server.port 8080
+cd app && streamlit run app.py --server.port 8080
 ```
 The web app can then be launched on a web browser at: 
 ```
