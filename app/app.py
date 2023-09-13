@@ -15,7 +15,7 @@ PAGE_CONFIG = {"page_title": "DeepBryo", "page_icon": ":o", "layout": "wide"}
 st.set_page_config(**PAGE_CONFIG)
 
 
-@st.experimental_singleton
+@st.cache_resource
 def initialization():
     config_file = "../configs/swin/mask_config_serve_tiny.py"
     checkpoint_file = "../inference/deepbryo_tiny.pth"
@@ -23,13 +23,13 @@ def initialization():
     return model
 
 
-@st.experimental_singleton
+@st.cache_resource
 def init_filter():
     autofilter = pickle.load(open("./automated_filtering.dat", "rb"))
     return autofilter
 
 
-@st.experimental_memo
+@st.cache_data
 def inference(model, img):
     return inference_detector(model, img)
 
