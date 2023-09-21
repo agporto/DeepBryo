@@ -29,7 +29,7 @@ def init_filter():
     return autofilter
 
 
-@st.cache_data
+#@st.cache_data
 def inference(model, img):
     return inference_detector(model, img)
 
