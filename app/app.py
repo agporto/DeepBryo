@@ -29,9 +29,9 @@ def init_filter():
     return autofilter
 
 
-#@st.cache_data
-def inference(model, img):
-    return inference_detector(model, img)
+@st.cache_data
+def inference(_model, img):
+    return inference_detector(_model, img)
 
 
 def filter_border(img_size, outputs, classes, pad, confidence):
