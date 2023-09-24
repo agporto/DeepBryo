@@ -18,7 +18,7 @@ st.set_page_config(**PAGE_CONFIG)
 @st.cache_resource
 def initialization():
     config_file = "../configs/swin/mask_config_serve_tiny.py"
-    checkpoint_file = "../inference/deepbryo-tiny.pth"
+    checkpoint_file = "../inference/deepbryo_tiny.pth"
     model = init_detector(config_file, checkpoint_file, device="cuda:0")
     return model
 
@@ -30,8 +30,8 @@ def init_filter():
 
 
 @st.cache_data
-def inference(model, img):
-    return inference_detector(model, img)
+def inference(_model, img):
+    return inference_detector(_model, img)
 
 
 def filter_border(img_size, outputs, classes, pad, confidence):
