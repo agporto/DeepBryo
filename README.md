@@ -67,7 +67,7 @@ python app/app-cli.py -i INPUT_DIR -o OUT_DIR [other optional arguments]
 The parameters associated with the cli tool mirror the web app and are:
 
 ```
-usage: app-cli.py [-h] -i INPUT_DIR -o OUT_DIR [-c CLASS] [-p PADDING [PADDING ...]] [-t CONFIDENCE] 
+usage: app-cli.py [-h] -i INPUT_DIR -o OUT_DIR [-c CLASS] [-p PADDING] [-t CONFIDENCE] 
                   [-a] [-s STRICTNESS] [-sc SCALE]
 
 optional arguments:
@@ -83,10 +83,11 @@ optional arguments:
                         object class of interest. 
                         options: all, autozooid, orifice, avicularium, ovicell, ascopore, opesia
 
-  -p PADDING [PADDING ...], --padding PADDING [PADDING ...]
-                        remove objects falling within a certain distance from
-                        the image border. please provide it as a list in the
+  -p PADDING, --padding PADDING
+                        remove objects falling within a certain distance (in pixels) from
+                        the image border (default = 0 0 0 0). please provide it as a list in the
                         following order: left, top, right, bottom
+			the list should be whole numbers separated only by spaces. for example: -p 5 5 5 125
 
   -t CONFIDENCE, --confidence CONFIDENCE
                         model's confidence threshold (default = 0.5)
