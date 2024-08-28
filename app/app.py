@@ -354,7 +354,7 @@ def main():
                         )
                 else:
                     st.write(
-                        f"Please select two points: one at the beggining and one at the end of the scale. Then press the leftmost button to submit to the app."
+                        f"Please select two points: one at the beginning and one at the end of the scale. Then press the leftmost button to submit to the app."
                     )
 
         else:
