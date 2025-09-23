@@ -11,10 +11,6 @@
 
 This repo contains the code and configuration files necessary to initiate a local instance of `DeepBryo`. It is based on [mmdetection](https://github.com/open-mmlab/mmdetection), [streamlit](https://streamlit.io/) and [SwinTransformer](https://arxiv.org/pdf/2103.14030.pdf)
 
-## Server 
-
-We host a `DeepBryo` production server for bryozoologists. It can be found at [DeepBryo](https://deepbryo.ngrok.io). Please complete [this](https://docs.google.com/forms/d/e/1FAIpQLSc-NoKamdaWiB9pCGQyXFHsMpXXlBgYRlwwSn53h8jwf7UMnw/viewform?usp=pp_url) registration form to let us know who you are and what is your main goal when using it.
-
 
 ## Updates
 11/18/2022 - Preprint is out at bioRxiv. Model weights are released.
